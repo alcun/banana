@@ -4,24 +4,15 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 
 
+
 //sound
-var source = "/blue-danube.mp3";
-var audio = document.createElement("audio");
-//
-audio.autoplay = true;
-//
-audio.load();
-audio.addEventListener(
-  "load",
-  function () {
-    audio.play();
-  },
-  true
-);
-audio.src = source;
+const audio = document.querySelector("audio");
+window.addEventListener("mouseover", () => {
+  audio.volume = 1;
+  audio.play();
+});
 
 
-const loader = new GLTFLoader();
 
 //scene
 const scene = new THREE.Scene();
@@ -45,7 +36,11 @@ bgLoader.load(
 
 //banana - https://threejs.org/docs/#manual/en/introduction/Loading-3D-models
 //shouts out ejderhan-sarp34 on cgtrader
-loader.load(
+
+
+const objLoader = new GLTFLoader();
+
+objLoader.load(
   "/banana.gltf",
   function (gltf) {
     scene.add(gltf.scene);
