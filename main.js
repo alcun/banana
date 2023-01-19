@@ -7,7 +7,7 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 
 //sound
 const audio = document.querySelector("audio");
-window.addEventListener("mouseover", () => {
+window.addEventListener("click", () => {
   audio.volume = 1;
   audio.play();
 });
