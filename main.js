@@ -25,6 +25,7 @@ const bgLoader = new THREE.TextureLoader();
 bgLoader.load(
   "/space.jpeg",
   function (texture) {
+    texture.repeat.set(1, 1); // Prevent scaling
     scene.background = texture;
   }
 );
