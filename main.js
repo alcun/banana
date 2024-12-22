@@ -3,8 +3,6 @@ import "./style.css";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 
-
-
 //sound
 const audio = document.querySelector("audio");
 window.addEventListener("click", () => {
@@ -16,19 +14,18 @@ window.addEventListener("touchstart", () => {
   audio.play();
 });
 
-
 //scene
 const scene = new THREE.Scene();
 
 //Load background texture
-const bgLoader = new THREE.TextureLoader();
-bgLoader.load(
-  "/space.jpeg",
-  function (texture) {
-    texture.repeat.set(1, 1); // Prevent scaling
-    scene.background = texture;
-  }
-);
+// const bgLoader = new THREE.TextureLoader();
+// bgLoader.load(
+//   "/space.jpeg",
+//   function (texture) {
+//     texture.repeat.set(1, 1); // Prevent scaling
+//     scene.background = texture;
+//   }
+// );
 
 //sphere
 // const geometry = new THREE.SphereGeometry(3, 64, 64)
@@ -40,7 +37,6 @@ bgLoader.load(
 
 //banana - https://threejs.org/docs/#manual/en/introduction/Loading-3D-models
 //shouts out ejderhan-sarp34 on cgtrader
-
 
 const objLoader = new GLTFLoader();
 
@@ -82,7 +78,10 @@ scene.add(camera);
 
 //render
 const canvas = document.querySelector(".webgl");
-const renderer = new THREE.WebGLRenderer({ canvas });
+const renderer = new THREE.WebGLRenderer({
+  canvas,
+  alpha: true, // Add this line
+});
 renderer.setSize(sizes.width, sizes.height);
 renderer.render(scene, camera);
 
