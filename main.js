@@ -11,7 +11,10 @@ window.addEventListener("click", () => {
   audio.volume = 1;
   audio.play();
 });
-
+window.addEventListener("touchstart", () => {
+  audio.volume = 1;
+  audio.play();
+});
 
 
 //scene
